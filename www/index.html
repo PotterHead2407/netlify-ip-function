@@ -629,50 +629,12 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
-	/*
+
 //directly from neon not done
 		import { neon } from '@netlify/neon';
 const sql = neon(); // automatically uses env NETLIFY_DATABASE_URL
 
-const [post] = await sql`SELECT * FROM posts WHERE id = ${postId}`;*/
-
-		import { neon } from '@netlify/neon';
-
-export default async (req, context) => {
-  const sql = neon(); // verwendet automatisch NETLIFY_DATABASE_URL
-  
-  const ip = req.headers.get('x-forwarded-for') || req.headers.get('client-ip');
-  const userAgent = req.headers.get('user-agent');
-  const referer = req.headers.get('referer') || null;
-  
-  try {
-    await sql`
-      INSERT INTO ip_logs (ip_address, user_agent, referer)
-      VALUES (${ip}, ${userAgent}, ${referer})
-    `;
-    
-    return new Response(
-      JSON.stringify({ success: true, ip: ip }),
-      {
-        status: 200,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      }
-    );
-  } catch (error) {
-    console.error('Error:', error);
-    return new Response(
-      JSON.stringify({ success: false, error: error.message }),
-      { status: 500 }
-    );
-  }
-};
-
-export const config = {
-  path: "/api/ip"
-};
+const [post] = await sql`SELECT * FROM posts WHERE id = ${postId}`;
     </script>
   </body>
 </html>
