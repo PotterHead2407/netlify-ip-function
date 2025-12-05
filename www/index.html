@@ -8,26 +8,627 @@
     <link rel="preload stylesheet" href="./example.css" as="style" />
   </head>
   <body>
-    <h1>Oh, hello.</h1>
-    <p class="text">Your IP address is <tt>loading</tt></p>
-    <p>
-      Get the code for all this
-      <a href="https://github.com/mraichelson/netlify-ip-function">on Github</a
-      >.
-    </p>
+    <strong><div id="datetime"></div></strong>
+
+    <div class="container">
+        <section class="karte">
+            <h1>Raphas Deltoidenberechner</h1>
+            Bitte gib die Werte in cm ein:<br>
+            <input type="number" id="a" placeholder="Eingabe a (nur wenn kein e angegeben ist)"><br>
+            <input type="number" id="b" placeholder="Eingabe b (nur wenn kein e angegeben ist)"><br>
+            <input type="number" id="e" placeholder="Eingabe e "><br>
+            <input type="number" id="f" placeholder="Eingabe f"><br>
+            <br>
+            <button id="deltoidberechnen">Berechnen</button><strong class="falsch_eingegeben_deltoid"> Bitte gebe genug und richtige Werte ein.</strong><br>
+            <strong>Der Flächeninhalt des Deltoiden ist:</strong><input type="text" id="ErgebnissOutputdeltoid" readonly placeholder="x">cm²
+        </section>
+        <br>
+        <section class="karte">
+            <h1>Raphas Zinseszinsberechner</h1>
+            Bitte gib die Werte ein:<br>
+            <input type="number" id="startkapital" placeholder="Anfangskapital in €"><br>
+            <input type="number" id="zinssatz" placeholder="Zinssatz in %"><br>
+            <input type="number" id="laufzeit" placeholder="Anlagedauer in Jahren"><br>
+            <br>
+            <button id="zinseszinsberechnen">Berechnen</button><strong class="falsch_eingegeben_zinseszins"> Bitte gebe genug und richtige Werte ein.</strong><br>
+            <strong>Das Endkapital ist:</strong><br>
+            <input type="text" id="ErgebnissOutputzinseszins" readonly placeholder="x">€
+        </section>
+        <br>
+        <section class="karte">
+        <h1>Raphas Pythagorasrechner</h1>
+            Bitte gib die Werte in cm ein und lasse frei was du nicht hast:<br>
+            <input type="number" id="seitea" placeholder="Eingabe Seite a "><br>
+            <input type="number" id="seiteb" placeholder="Eingabe Seite b "><br>
+            <input type="number" id="seitec" placeholder="Eingabe Seite c "><br>
+            <br>
+            <button id="pythagorasberechnen">Berechnen</button><strong class="falsch_eingegeben_pythagoras"> Bitte gebe genug und richtige Werte ein.</strong><br>
+            <strong>Die fehlende Seite ist:</strong><input type="text" id="ErgebnissOutputpythagoras" readonly placeholder="x">cm lang
+        </section>
+        <br>
+        <section class="karte">
+            <h1>Raphas Dreiecksflächeninhaltberechner</h1>
+            Bitte gib die Werte in cm ein:<br>
+            <input type="number" id="grundseite" placeholder="Eingabe Grundlinie g "><br>
+            <input type="number" id="hoehe" placeholder="Eingabe Höhe h "><br>
+            <br>
+            <button id="dreiecksberechnen">Berechnen</button><strong class="falsch_eingegeben_dreieck"> Bitte gebe genug und richtige Werte ein.</strong><br>
+            <strong>Der Flächeninhalt des Dreiecks ist:</strong><input type="text" id="ErgebnissOutputdreieck" readonly placeholder="x">cm²
+        </section>
+        <br>
+        <section class="karte"> 
+            <h1>Rapha Mitternachtsformelberechner</h1>
+            Bitte gib die Werte ein:<br>
+            <input type="number" id="koeffizienta" placeholder="Eingabe Koeffizient a "><br>
+            <input type="number" id="koeffizientb" placeholder="Eingabe Koeffizient b "><br>
+            <input type="number" id="koeffizientc" placeholder="Eingabe Koeffizient c "><br>
+            <br>
+            <button id="mitternachtsformelberechnen">Berechnen</button><strong class="falsch_eingegeben_mitternachtsformel"> Bitte gebe genug und richtige Werte ein.</strong><br>
+            <strong>Die Lösungen der Gleichung sind:</strong><input type="text" id="ErgebnissOutputmitternachtsformel" readonly placeholder="x">
+        <hr>   
+            <h1>Raphas PQ-Formelberechner</h1>
+            Bitte gib die Werte ein:<br>
+            <input type="number" id="koeffizientp" placeholder="Eingabe Koeffizient p "><br>
+            <input type="number" id="koeffizientq" placeholder="Eingabe Koeffizient q "><br>
+            <br>
+            <button id="pqformelberechnen">Berechnen</button><strong class="falsch_eingegeben_pqformel"> Bitte gebe genug und richtige Werte ein.</strong><br>
+            <strong>Die Lösungen der Gleichung sind:</strong><input type="text" id="ErgebnissOutputpqformel" readonly placeholder="x">
+        </section>
+        <br>
+        <section class="karte"> 
+            <h1>Raphaels alles umrechner</h1>
+            Bitte gebe an von was zu was du umrechnen möchtest:<br>
+
+            <select name="von_zu" id="von_zu">
+            <option value="mm in cm">mm in cm</option>
+            <option value="cm in mm">cm in mm</option>
+            <option value="cm in m">cm in m</option>
+            <option value="m in cm">m in cm</option>
+            <option value="km in m">km in m</option>
+            <option value="m in km">m in km</option>
+
+            <hr>
+
+            <option value="C in F">°C in °F</option>
+            <option value="F in C">°F in °C</option>
+            <option value="C in K">°C in K</option>
+            <option value="K in C">K in °C</option>
+            <option value="F in K">°F in K</option>
+            <option value="K in F">K in °F</option>
+
+            <hr>
+
+            <option value="mg in g">mg in g</option>
+            <option value="g in mg">g in mg</option>
+            <option value="g in kg">g in kg</option>
+            <option value="kg in g">kg in g</option>
+            <option value="t in kg">t in kg</option>
+            <option value="kg in t">kg in t</option>
+
+            <hr>
+
+            <option value="€ in $">€ in $</option>
+            <option value="$ in €">$ in €</option>
+            <option value="£ in €">£ in €</option>
+            <option value="€ in £">€ in £</option>
+            <option value="$ in £">$ in £</option>
+            <option value="£ in $">£ in $</option>
+            </select>
+
+            <br>
+
+            <input type="number" id="wert" placeholder="Wert "><br>
+            <br>
+            <button id="umrechnen">Umrechnen</button><strong class="falsch_eingegeben_umrechner"> Bitte gebe genug und richtige Werte ein.</strong><br>
+            <strong>Das Ergebnis ist:</strong>
+            <br>
+            <input type="text" id="ErgebnissOutputumrechner" readonly placeholder="x">
+        </section>
+        <br>
+        <section class="karte"> 
+                <h1>A + B</h1>
+                <input type="number" id="Zahl1Add" value="a">
+                +
+                <input type="number" id="Zahl2Add" value="b">
+                =
+                <input type="number" id="ergebniss_a_bAdd" readonly placeholder="Drücke den Button zum Berechnen">
+                <br>
+                <button id="a_bAdd">Umrechnen</button>
+                <strong class="falsch_eingegeben_a_bAdd"> Bitte gebe genug und richtige Werte ein.</strong><br>
+        </section>
+        <br>
+        <section class="karte"> 
+        <h1>A - B</h1>
+            <input type="number" id="Zahl1Sub" value="a">
+            -
+            <input type="number" id="Zahl2Sub" value="b">
+            =
+            <input type="number" id="ergebniss_a_bSub" readonly placeholder="Drücke den Button zum Berechnen">
+            <br>
+            <button id="a_bSub">Umrechnen</button>
+            <strong class="falsch_eingegeben_a_bSub"> Bitte gebe genug und richtige Werte ein.</strong><br>
+        </section>    
+        <br>
+        <section class="karte">
+            <h1>A x B</h1>
+            <input type="number" id="Zahl1Mult" value="a">
+            x
+            <input type="number" id="Zahl2Mult" value="b">
+            =
+            <input type="number" id="ergebniss_a_bMult" readonly placeholder="Drücke den Button zum Berechnen">
+            <br>
+            <button id="a_bMult">Umrechnen</button>
+            <strong class="falsch_eingegeben_a_bMult"> Bitte gebe genug und richtige Werte ein.</strong><br>
+        </section>
+        <br>
+        <section class="karte">
+            <h1>A : B</h1>
+            <input type="number" id="Zahl1geteilt" value="a">
+            :
+            <input type="number" id="Zahl2geteilt" value="b">
+            =
+            <input type="number" id="ergebniss_a_bgeteilt" readonly placeholder="Drücke den Button zum Berechnen">
+            <br>
+            <button id="a_bgeteilt">Umrechnen</button>
+            <strong class="falsch_eingegeben_a_bgeteilt"> Bitte gebe genug und richtige Werte ein.</strong><br>
+        <hr>
+            <h1>A : B (mit Rest)</h1>
+            <input type="number" id="Zahl1modulo" value="a">
+            :
+            <input type="number" id="Zahl2modulo" value="b">
+            =
+            <input type="number" id="ergebniss_a_bmodulo" readonly placeholder="Drücke den Button zum Berechnen">
+			Rest:
+			<input type="number" id="ergebniss_a_rest" readonly>
+            <br>
+            <button id="a_bmodulo">Umrechnen</button>
+            <strong class="falsch_eingegeben_a_bmodulo"> Bitte gebe genug und richtige Werte ein.</strong><br>
+        </section>
     <script>
       const getIp = async () => {
         try {
           const res = await fetch('/api/ip')
           const json = await res.json()
-          document.querySelector('p.text tt').innerHTML = json.ip
+          console.log(json.ip)
         } catch (error) {
-          document.querySelector('p.text').innerHTML =
-            "Well, that's embarrassing. I've returned an error <small>(I've logged it to the console)</small>. Whoops."
           console.log(error)
         }
       }
       getIp()
+
+      function deltoidberechnen() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let e = parseFloat(document.getElementById("e").value);
+    let f = parseFloat(document.getElementById("f").value);
+
+    if (!isNaN(e) && !isNaN(f)) {
+        let flaecheninhaltdeltoid = e*f / 2;
+        document.getElementById("ErgebnissOutput").value = flaecheninhaltdeltoid;
+        document.getElementsByClassName("falsch_eingegeben")[0].style.display = "none"
+    }
+
+    else if (!isNaN(a) && !isNaN(b) && isNaN(e) && !isNaN(f)) {
+
+        let firsthalf = Math.sqrt(a*a-(f/2)*(f/2));
+        let secondhalf = Math.sqrt(b*b-(f/2)*(f/2));
+        let eberechnet = firsthalf + secondhalf;
+            
+        let flaecheninhaltdeltoid = eberechnet*f / 2;
+        document.getElementById("ErgebnissOutputdeltoid").value = "Flächeninhalt = " + flaecheninhaltdeltoid.toFixed(2) + " und e = " + eberechnet.toFixed(2);
+        document.getElementsByClassName("falsch_eingegeben")[0].style.display = "none"
+    }
+    
+    else {
+          document.getElementsByClassName("falsch_eingegeben_deltoid")[0].style.display = "block";
+    }
+}
+
+const buttonDeltoid = document.getElementById("deltoidberechnen");
+buttonDeltoid.addEventListener("click", deltoidberechnen);
+
+function zinseszinsberechnen() {
+    
+    let startkapital = parseFloat(document.getElementById("startkapital").value);
+    let zinssatz = parseFloat(document.getElementById("zinssatz").value) / 100;
+    let laufzeit = parseFloat(document.getElementById("laufzeit").value);
+
+    if (!isNaN(startkapital) && !isNaN(zinssatz) && !isNaN(laufzeit)) {
+        let endkapital = startkapital * Math.pow((1 + zinssatz), laufzeit);
+        document.getElementById("ErgebnissOutputzinseszins").value = endkapital.toFixed(2);
+        document.getElementsByClassName("falsch_eingegeben")[0].style.display = "none"
+    }
+
+    else {
+          document.getElementsByClassName("falsch_eingegeben_zinseszins")[0].style.display = "block";
+    }
+}
+
+const buttonZinseszins = document.getElementById("zinseszinsberechnen");
+buttonZinseszins.addEventListener("click", zinseszinsberechnen);
+
+function pythagorasberechnen() {
+    let seitea = parseFloat(document.getElementById("seitea").value);
+    let seiteb = parseFloat(document.getElementById("seiteb").value);
+    let seitec = parseFloat(document.getElementById("seitec").value);
+
+    if (!isNaN(seitea) && !isNaN(seiteb) && isNaN(seitec)) {
+        let seitecberechnet = Math.sqrt(seitea*seitea + seiteb*seiteb);
+        document.getElementById("ErgebnissOutputpythagoras").value = seitecberechnet.toFixed(2);
+        document.getElementsByClassName("falsch_eingegeben_pythagoras")[0].style.display = "none"
+    }
+
+    else if (!isNaN(seitec) && !isNaN(seitea) && isNaN(seiteb)) {
+        let seitebberechnet = Math.sqrt(seitec*seitec - seitea*seitea);
+        document.getElementById("ErgebnissOutputpythagoras").value = seitebberechnet.toFixed(2);
+        document.getElementsByClassName("falsch_eingegeben_pythagoras")[0].style.display = "none"
+    }  
+
+    else if (!isNaN(seitec) && !isNaN(seiteb) && isNaN(seitea)) {
+        let seiteaberechnet = Math.sqrt(seitec*seitec - seiteb*seiteb);
+        document.getElementById("ErgebnissOutputpythagoras").value = seiteaberechnet.toFixed(2);
+        document.getElementsByClassName("falsch_eingegeben_pythagoras")[0].style.display = "none"
+    }
+
+    else {
+          document.getElementsByClassName("falsch_eingegeben_pythagoras")[0].style.display = "block";
+    }
+}
+
+const buttonPythagoras = document.getElementById("pythagorasberechnen");
+buttonPythagoras.addEventListener("click", pythagorasberechnen);
+
+function dreiecksberechnen() {
+    let grundseite = parseFloat(document.getElementById("grundseite").value);
+    let hoehe = parseFloat(document.getElementById("hoehe").value);
+
+    if (!isNaN(grundseite) && !isNaN(hoehe)) {
+        let flaecheninhaltdreieck = (grundseite * hoehe) / 2;
+        document.getElementById("ErgebnissOutputdreieck").value = flaecheninhaltdreieck;
+        document.getElementsByClassName("falsch_eingegeben_dreieck")[0].style.display = "none"
+
+    } else {
+          document.getElementsByClassName("falsch_eingegeben_dreieck")[0].style.display = "block";
+    }
+}
+
+const buttonDreieck = document.getElementById("dreiecksberechnen");
+buttonDreieck.addEventListener("click", dreiecksberechnen);
+
+function mitternachtsformelberechnen() {
+    let ka = parseFloat(document.getElementById("koeffizienta").value);
+    let kb = parseFloat(document.getElementById("koeffizientb").value);
+    let kc = parseFloat(document.getElementById("koeffizientc").value);
+    let diskriminante = kb*kb - 4*ka*kc;
+
+    if (!isNaN(ka) && !isNaN(kb) && !isNaN(kc) && diskriminante >= 0) {
+        let x1 = (-kb + Math.sqrt(diskriminante)) / (2*ka);
+        let x2 = (-kb - Math.sqrt(diskriminante)) / (2*ka);
+        document.getElementById("ErgebnissOutputmitternachtsformel").value = "x1: " + x1.toFixed(2) + ", x2: " + x2.toFixed(2);
+        document.getElementsByClassName("falsch_eingegeben_mitternachtsformel")[0].style.display = "none"
+    }
+    
+    else if (!isNaN(ka) && diskriminante < 0) {
+        document.getElementById("ErgebnissOutputmitternachtsformel").value = "Keine reellen Lösungen";
+        document.getElementsByClassName("falsch_eingegeben_mitternachtsformel")[0].style.display = "none"
+    }
+
+    else {
+          document.getElementsByClassName("falsch_eingegeben_mitternachtsformel")[0].style.display = "block";
+    }
+}
+
+const buttonMitternacht = document.getElementById("mitternachtsformelberechnen");
+buttonMitternacht.addEventListener("click", mitternachtsformelberechnen);
+
+function pqformelberechnen() {
+    let p = parseFloat(document.getElementById("koeffizientp").value);
+    let q = parseFloat(document.getElementById("koeffizientq").value);
+    let diskriminante = (p/2)*(p/2) - q;
+
+    if (!isNaN(p) && !isNaN(q) && diskriminante >= 0) {
+        let x1 = -(p/2) + Math.sqrt(diskriminante);
+        let x2 = -(p/2) - Math.sqrt(diskriminante);
+        document.getElementById("ErgebnissOutputpqformel").value = "x1: " + x1.toFixed(2) + ", x2: " + x2.toFixed(2);
+        document.getElementsByClassName("falsch_eingegeben_pqformel")[0].style.display = "none" 
+    }
+
+    else if (!isNaN(p) && !isNaN(q) && diskriminante < 0) {
+        document.getElementById("ErgebnissOutputpqformel").value = "Keine reellen Lösungen";
+        document.getElementsByClassName("falsch_eingegeben_pqformel")[0].style.display = "none"
+    }
+
+    else {
+          document.getElementsByClassName("falsch_eingegeben_pqformel")[0].style.display = "block";
+    }
+}
+
+const buttonPQFormel = document.getElementById("pqformelberechnen");
+buttonPQFormel.addEventListener("click", pqformelberechnen);
+
+function umrechnen() {
+    let von = document.getElementById("von_zu").value;
+    let wert = parseFloat(document.getElementById("wert").value);
+    let ergebnis;
+
+    //strecken
+    if (von === "mm in cm" && !isNaN(wert)) {
+        ergebnis = wert / 10;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " cm";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "cm in mm" && !isNaN(wert)) {
+        ergebnis = wert * 10;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " mm";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+    
+    else if (von === "cm in m" && !isNaN(wert)) {
+        ergebnis = wert / 100;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " m";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "m in cm" && !isNaN(wert)) {
+        ergebnis = wert * 100;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " cm";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "km in m" && !isNaN(wert)) {
+        ergebnis = wert * 1000;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " m";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "m in km" && !isNaN(wert)) {
+        ergebnis = wert / 1000;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " km";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    //Temperaturen
+
+    else if (von === "C in F" && !isNaN(wert)) {
+        ergebnis = (wert * 9/5) + 32;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " °F";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "F in C" && !isNaN(wert)) {
+        ergebnis = (wert - 32) * 5/9;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " °C";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "C in K" && !isNaN(wert)) {
+        ergebnis = wert + 273.15;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " K";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "K in C" && !isNaN(wert)) {
+        ergebnis = wert - 273.15;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " °C";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "F in K" && !isNaN(wert)) {
+        ergebnis = (wert - 32) * 5/9 + 273.15;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " K";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "K in F" && !isNaN(wert)) {
+        ergebnis = (wert - 273.15) * 9/5 + 32;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " °F";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    //gewichte
+
+    else if (von === "mg in g" && !isNaN(wert))  {
+        ergebnis = wert / 1000;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " g";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "g in mg" && !isNaN(wert))  {
+        ergebnis = wert * 1000;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " mg";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "g in kg" && !isNaN(wert))  {
+        ergebnis = wert / 1000;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " kg";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "kg in g" && !isNaN(wert))  {
+        ergebnis = wert * 1000;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " g";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "t in kg" && !isNaN(wert))  {
+        ergebnis = wert * 1000;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " kg";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "kg in t" && !isNaN(wert))  {
+        ergebnis = wert / 1000;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " t";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    //währungen
+
+    else if (von === "€ in $" && !isNaN(wert))  {
+        let kurs = 1.1; 
+        ergebnis = wert * kurs;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " $";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "$ in €" && !isNaN(wert))  {
+        let kurs = 1.1; 
+        ergebnis = wert / 1.1;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " €";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "£ in €" && !isNaN(wert))  {
+        let kurs = 1.2; 
+        ergebnis = wert * kurs;
+		document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " €";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+	
+    else if (von === "€ in £" && !isNaN(wert))  {
+        let kurs = 1.2; 
+        ergebnis = wert / kurs;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " £";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "$ in £" && !isNaN(wert))  {
+        let kurs = 0.85; 
+        ergebnis = wert * kurs;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " £";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    else if (von === "£ in $" && !isNaN(wert))  {
+        let kurs = 0.85; 
+        ergebnis = wert / kurs;
+        document.getElementById("ErgebnissOutputumrechner").value = ergebnis.toFixed(2) + " $";
+        document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "none"
+    }
+
+    //Fehlerfall
+    else {
+          document.getElementsByClassName("falsch_eingegeben_umrechner")[0].style.display = "block";
+    }
+}
+
+const buttonUmrechner = document.getElementById("umrechnen");
+buttonUmrechner.addEventListener("click", umrechnen);
+
+//Addition
+function rechne_a_bAdd (){
+	let a_Add = parseFloat(document.getElementById("Zahl1Add").value);	
+    let b_Add = parseFloat(document.getElementById("Zahl2Add").value);
+	
+	if (!isNaN(a_Add) && !isNaN(b_Add)) {
+		let a_bAdd = a_Add+b_Add
+	document.getElementById("ergebniss_a_bAdd").value = a_bAdd.toFixed(2);
+    document.getElementsByClassName("falsch_eingegeben_a_bAdd")[0].style.display = "none"
+	}
+	
+	else{
+		document.getElementsByClassName("falsch_eingegeben_a_bAdd")[0].style.display = "block"
+	}
+}
+	
+const buttona_bAdd = document.getElementById("a_bAdd");
+buttona_bAdd.addEventListener("click", rechne_a_bAdd);
+
+//Subtraction
+function rechne_a_bSub (){
+	let a_Sub = parseFloat(document.getElementById("Zahl1Sub").value);	
+    let b_Sub = parseFloat(document.getElementById("Zahl2Sub").value);
+	
+	if (!isNaN(a_Sub) && !isNaN(b_Sub)) {
+		let a_bSub = a_Sub-b_Sub
+	document.getElementById("ergebniss_a_bSub").value = a_bSub.toFixed(2);
+    document.getElementsByClassName("falsch_eingegeben_a_bSub")[0].style.display = "none"
+	}
+	
+	else{
+		document.getElementsByClassName("falsch_eingegeben_a_bSub")[0].style.display = "block"
+	}
+}
+
+const buttona_bSub = document.getElementById("a_bSub");
+buttona_bSub.addEventListener("click", rechne_a_bSub);
+
+//mal
+function rechne_a_bMult (){
+	let a_Mult = parseFloat(document.getElementById("Zahl1Mult").value);	
+    let b_Mult = parseFloat(document.getElementById("Zahl2Mult").value);
+	
+	if (!isNaN(a_Mult) && !isNaN(b_Mult)) {
+		let a_bMult = a_Mult*b_Mult
+	document.getElementById("ergebniss_a_bMult").value = a_bMult.toFixed(2);
+    document.getElementsByClassName("falsch_eingegeben_a_bMult")[0].style.display = "none"
+	}
+	
+	else{
+		document.getElementsByClassName("falsch_eingegeben_a_bMult")[0].style.display = "block"
+	}
+}
+
+const buttona_bMult = document.getElementById("a_bMult");
+buttona_bMult.addEventListener("click", rechne_a_bMult);
+
+//geteilt
+function rechne_a_bgeteilt (){
+	let a_geteilt = parseFloat(document.getElementById("Zahl1geteilt").value);	
+    let b_geteilt = parseFloat(document.getElementById("Zahl2geteilt").value);
+	
+	if (!isNaN(a_geteilt) && !isNaN(b_geteilt)) {
+		let a_bgeteilt = a_geteilt/b_geteilt
+	document.getElementById("ergebniss_a_bgeteilt").value = a_bgeteilt.toFixed(2);
+    document.getElementsByClassName("falsch_eingegeben_a_bgeteilt")[0].style.display = "none"
+	}
+	
+	else{
+		document.getElementsByClassName("falsch_eingegeben_a_bgeteilt")[0].style.display = "block"
+	}
+}
+
+const buttona_bgeteilt = document.getElementById("a_bgeteilt");
+buttona_bgeteilt.addEventListener("click", rechne_a_bgeteilt);
+
+//modulo
+function rechne_a_bmodulo (){
+	let a_modulo = parseFloat(document.getElementById("Zahl1modulo").value);	
+    let b_modulo = parseFloat(document.getElementById("Zahl2modulo").value);
+	
+	if (!isNaN(a_modulo) && !isNaN(b_modulo)) {
+		let a_bmodulo = a_modulo/b_modulo
+		let rest = a_modulo%b_modulo
+	document.getElementById("ergebniss_a_bmodulo").value = Math.round(a_bmodulo);
+	document.getElementById("ergebniss_a_rest").value = Math.round(rest)
+    document.getElementsByClassName("falsch_eingegeben_a_bmodulo")[0].style.display = "none"
+	}
+	
+	else{
+		document.getElementsByClassName("falsch_eingegeben_a_bmodulo")[0].style.display = "block"
+	}
+}
+
+const buttona_bmodulo = document.getElementById("a_bmodulo");
+buttona_bmodulo.addEventListener("click", rechne_a_bmodulo);
+
+function updateClock() {
+  const now = new Date();
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit" 
+    };
+  document.getElementById("datetime").textContent = now.toLocaleString("de-DE", options);
+}
+setInterval(updateClock, 1000);
+updateClock();
     </script>
   </body>
 </html>
