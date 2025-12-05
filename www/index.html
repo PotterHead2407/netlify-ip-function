@@ -196,7 +196,13 @@
       }
       getIp()
 
-      function deltoidberechnen() {
+//directly from neon not done
+import { neon } from '@netlify/neon';
+const sql = neon(); // automatically uses env NETLIFY_DATABASE_URL
+
+const [post] = await sql`SELECT * FROM posts WHERE id = ${postId}`;
+
+function deltoidberechnen() {
     let a = parseFloat(document.getElementById("a").value);
     let b = parseFloat(document.getElementById("b").value);
     let e = parseFloat(document.getElementById("e").value);
@@ -629,12 +635,6 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
-
-//directly from neon not done
-import { neon } from '@netlify/neon';
-const sql = neon(); // automatically uses env NETLIFY_DATABASE_URL
-
-const [post] = await sql`SELECT * FROM posts WHERE id = ${postId}`;
     </script>
   </body>
 </html>
