@@ -1,29 +1,134 @@
-html,
-body {
-  height: 100vh;
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  text-align: center;
-}
-* {
-  margin: 0;
-  padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-color: #d4dee6ff;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.4;
   box-sizing: border-box;
 }
-body {
-  background-color: #eee;
-  color: #444;
-  display: grid;
-  padding: 3rem;
-  place-content: center;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 80px auto 40px;
+  width: calc(100% - 24px);
 }
-body > * + * {
-  margin-top: 1rem;
+
+#datetime {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: rgba(255,255,255,0.9);
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  white-space: nowrap;
+  color: #333;
+  font-size: 0.95rem;
 }
-tt {
-  background-color: #ccc;
-  border-radius: 0.25rem;
+
+.karte {
+  background: #a9bac9ff;
+  width: 100%;
+  max-width: 900px;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  box-sizing: border-box;
+}
+
+.karte h1 {
+  margin: 0 0 10px 0;
+  color: darkblue;
+  font-size: 1.2rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
   font-size: 1rem;
-  padding: 0.25rem;
+  box-sizing: border-box;
+  background: #fff;
 }
+
+button {
+  background-color: #bfe7ff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #022a44;
+  transition: background-color 0.15s ease;
+  display: inline-block;
+  min-width: 140px;
+}
+
+button:hover {
+  background-color: #87d4ff;
+}
+
+.falsch_eingegeben_deltoid,
+.falsch_eingegeben_zinseszins,
+.falsch_eingegeben_pythagoras,
+.falsch_eingegeben_dreieck,
+.falsch_eingegeben_mitternachtsformel,
+.falsch_eingegeben_umrechner,
+.falsch_eingegeben_pqformel,
+.falsch_eingegeben_a_bAdd,
+.falsch_eingegeben_a_bSub,
+.falsch_eingegeben_a_bMult,
+.falsch_eingegeben_a_bgeteilt,
+.falsch_eingegeben_a_bmodulo {
+  color: #c52b2b;
+  display: none;
+  margin-left: 4px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .container { margin-top: 100px; padding: 16px; }
+  .karte { padding: 14px; border-radius: 10px; }
+  .karte h1 { font-size: 1.1rem; }
+}
+
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  #datetime {
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 0.95rem;
+  }
+  .container { margin-top: 54px; padding: 12px; }
+  .karte { padding: 14px; border-radius: 8px; }
+  input, select, textarea { padding: 12px; font-size: 1.05rem; }
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.05rem;
+    border-radius: 8px;
+  }
+  .karte + .karte { margin-top: 8px; }
+}
+
+.karte input[readonly] { background: #f4f6f8; }
