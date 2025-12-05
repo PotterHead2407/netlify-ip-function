@@ -629,6 +629,38 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
+
+		const { neon } = require('@neondatabase/serverless');
+
+exports.handler = async (event, context) => {
+  const sql = neon(process.env.DATABASE_URL);
+  
+  const ip = event.headers['x-forwarded-for'] || event.headers['client-ip'];
+  const userAgent = event.headers['user-agent'];
+  const referer = event.headers['referer'] || null;
+  
+  try {
+    await sql`
+      INSERT INTO ip_logs (ip_address, user_agent, referer)
+      VALUES (${ip}, ${userAgent}, ${referer})
+    `;
+    
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ success: true })
+    };
+  } catch (error) {
+    console.error('Error:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ success: false, error: error.message })
+    };
+  }
+};
     </script>
   </body>
 </html>
