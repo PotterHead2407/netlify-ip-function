@@ -196,12 +196,6 @@
       }
       getIp()
 
-//directly from neon not done
-import { neon } from '@netlify/neon';
-const sql = neon(); // automatically uses env NETLIFY_DATABASE_URL
-
-const [post] = await sql`SELECT * FROM posts WHERE id = ${postId}`;
-
 function deltoidberechnen() {
     let a = parseFloat(document.getElementById("a").value);
     let b = parseFloat(document.getElementById("b").value);
